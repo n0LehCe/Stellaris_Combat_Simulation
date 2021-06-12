@@ -1,4 +1,5 @@
 from Stellaris_Combat_Simulation.Fleet import *
+import json, os
 
 
 def load_vessels_types(type_str: str):
@@ -49,7 +50,7 @@ def main_get_quantities():
 def arm_fleet(fleet: Fleet):
     print(SECTION_SEPARATER[:-1])
     print(fleet)
-    available_type = [i+1 for i in [0, 1, 2, 3, 4] if fleet.get_quantity(i) != 0]
+    available_type = [i + 1 for i in [0, 1, 2, 3, 4] if fleet.get_quantity(i) != 0]
 
     editting_fleet_status = True
     while (editting_fleet_status):
@@ -117,10 +118,34 @@ def arm_fleet(fleet: Fleet):
             print(vessel)
     print(fleet.details())
 
+
+def export_fleet_json(fleet: Fleet):
+    fleet_data = {str(fleet.get_fleet_number()): fleet}
+
+    if os.path.exists('data/fleet_data.json'):
+        with open('data/fleet_data.json', 'r+') as openfile:
+            openfile.seek(0)
+            fleet_data.update(json.load(openfile))
+            openfile.seek(0)
+            json.dump(fleet_data, openfile, indent=4, cls=FleetEncoder)
+    else:
+        with open('data/fleet_data.json', 'w') as outfile:
+            json.dump(fleet_data, outfile, indent=4, cls=FleetEncoder)
+
+
+def import_fleet_json():
+    with open('data/fleet_data.json', 'r') as openfile:
+        data = json.load(openfile)
+    fleet = Fleet()
+    return fleet
+
+
 def main():
     fleet = Fleet('test_fleet_000')
     initialize_fleet(main_get_quantities(), fleet)
     arm_fleet(fleet)
+
+    export_fleet_json(fleet)
 
 
 if __name__ == '__main__':

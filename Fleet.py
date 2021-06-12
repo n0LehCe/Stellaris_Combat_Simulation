@@ -1,5 +1,6 @@
 from Stellaris_Combat_Simulation.Vessel import *
 from Stellaris_Combat_Simulation.MACRO import *
+from json import JSONEncoder
 
 
 class Fleet:
@@ -37,6 +38,9 @@ class Fleet:
             self.titans.extend([Titan(type, i) for i in range(amount)])
         self.fleet_size += amount
 
+    def get_fleet_number(self):
+        return self.fleet_number
+
     def get_size(self):
         return self.fleet_size
 
@@ -63,10 +67,14 @@ class Fleet:
             vessels_str += INDENTATION + '{} {}\n'.format(len(self.vessels[type]), type)
         return vessels_str[:-1]
 
-
     def details(self):
         vessels_str = 'Fleet: {}\nSize: {}\nVessels: \n'.format(self.fleet_number, self.fleet_size)
         for key in self.vessels.keys():
             if len(self.vessels[key]) > 0:
                 vessels_str += INDENTATION + self.vessels[key][0].__str__() + '\n'
         return vessels_str[:-1]
+
+
+class FleetEncoder(JSONEncoder):
+    def default(self, o):
+        return o.__dict__
