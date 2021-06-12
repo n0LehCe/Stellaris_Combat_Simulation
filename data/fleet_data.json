@@ -1,0 +1,518 @@
+{
+    "test_fleet_001": {
+        "fleet_number": "test_fleet_001",
+        "fleet_size": 1,
+        "corvettes": [
+            {
+                "core": {
+                    "name": "Interceptor",
+                    "slots": [
+                        {
+                            "type": "s",
+                            "weapon": {
+                                "name": "plasma_cannon_s",
+                                "type": "energy",
+                                "cooldown": 5.1,
+                                "accuracy": 0.8,
+                                "buff": {
+                                    "shield": 0.25,
+                                    "armor": 2.0,
+                                    "hull": 1.5
+                                },
+                                "size": "s",
+                                "cost": 22.0,
+                                "power": 17.0,
+                                "damage": [
+                                    20,
+                                    42
+                                ],
+                                "range": 30,
+                                "tracking": 0.4,
+                                "average_damage": 4.86,
+                                "status": 0
+                            }
+                        },
+                        {
+                            "type": "s",
+                            "weapon": {
+                                "name": "cutting_laser_s",
+                                "type": "energy",
+                                "cooldown": 4.0,
+                                "accuracy": 0.75,
+                                "buff": {
+                                    "shield": 0.5,
+                                    "armor": 1.25,
+                                    "hull": 1.75
+                                },
+                                "size": "s",
+                                "cost": 13.0,
+                                "power": 7.0,
+                                "damage": [
+                                    9,
+                                    22
+                                ],
+                                "range": 30,
+                                "tracking": 0.4,
+                                "average_damage": 2.9,
+                                "status": 0
+                            }
+                        },
+                        {
+                            "type": "s",
+                            "weapon": {
+                                "name": "matter_disintegrator_s",
+                                "type": "energy",
+                                "cooldown": 4.5,
+                                "accuracy": 0.9,
+                                "buff": {
+                                    "shield": 0.5,
+                                    "armor": 1.5,
+                                    "hull": 2.0
+                                },
+                                "size": "s",
+                                "cost": 29.0,
+                                "power": 25.0,
+                                "damage": [
+                                    20,
+                                    49
+                                ],
+                                "range": 60,
+                                "tracking": 0.6,
+                                "average_damage": 6.89,
+                                "status": 0
+                            }
+                        }
+                    ]
+                },
+                "type": 0,
+                "vessel_number": 0,
+                "sections": {
+                    "core": {
+                        "name": "Interceptor",
+                        "slots": [
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "plasma_cannon_s",
+                                    "type": "energy",
+                                    "cooldown": 5.1,
+                                    "accuracy": 0.8,
+                                    "buff": {
+                                        "shield": 0.25,
+                                        "armor": 2.0,
+                                        "hull": 1.5
+                                    },
+                                    "size": "s",
+                                    "cost": 22.0,
+                                    "power": 17.0,
+                                    "damage": [
+                                        20,
+                                        42
+                                    ],
+                                    "range": 30,
+                                    "tracking": 0.4,
+                                    "average_damage": 4.86,
+                                    "status": 0
+                                }
+                            },
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "cutting_laser_s",
+                                    "type": "energy",
+                                    "cooldown": 4.0,
+                                    "accuracy": 0.75,
+                                    "buff": {
+                                        "shield": 0.5,
+                                        "armor": 1.25,
+                                        "hull": 1.75
+                                    },
+                                    "size": "s",
+                                    "cost": 13.0,
+                                    "power": 7.0,
+                                    "damage": [
+                                        9,
+                                        22
+                                    ],
+                                    "range": 30,
+                                    "tracking": 0.4,
+                                    "average_damage": 2.9,
+                                    "status": 0
+                                }
+                            },
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "matter_disintegrator_s",
+                                    "type": "energy",
+                                    "cooldown": 4.5,
+                                    "accuracy": 0.9,
+                                    "buff": {
+                                        "shield": 0.5,
+                                        "armor": 1.5,
+                                        "hull": 2.0
+                                    },
+                                    "size": "s",
+                                    "cost": 29.0,
+                                    "power": 25.0,
+                                    "damage": [
+                                        20,
+                                        49
+                                    ],
+                                    "range": 60,
+                                    "tracking": 0.6,
+                                    "average_damage": 6.89,
+                                    "status": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "destroyers": [],
+        "cruisers": [],
+        "battleships": [],
+        "titans": [],
+        "vessels": {
+            "Corvette": [
+                {
+                    "core": {
+                        "name": "Interceptor",
+                        "slots": [
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "plasma_cannon_s",
+                                    "type": "energy",
+                                    "cooldown": 5.1,
+                                    "accuracy": 0.8,
+                                    "buff": {
+                                        "shield": 0.25,
+                                        "armor": 2.0,
+                                        "hull": 1.5
+                                    },
+                                    "size": "s",
+                                    "cost": 22.0,
+                                    "power": 17.0,
+                                    "damage": [
+                                        20,
+                                        42
+                                    ],
+                                    "range": 30,
+                                    "tracking": 0.4,
+                                    "average_damage": 4.86,
+                                    "status": 0
+                                }
+                            },
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "cutting_laser_s",
+                                    "type": "energy",
+                                    "cooldown": 4.0,
+                                    "accuracy": 0.75,
+                                    "buff": {
+                                        "shield": 0.5,
+                                        "armor": 1.25,
+                                        "hull": 1.75
+                                    },
+                                    "size": "s",
+                                    "cost": 13.0,
+                                    "power": 7.0,
+                                    "damage": [
+                                        9,
+                                        22
+                                    ],
+                                    "range": 30,
+                                    "tracking": 0.4,
+                                    "average_damage": 2.9,
+                                    "status": 0
+                                }
+                            },
+                            {
+                                "type": "s",
+                                "weapon": {
+                                    "name": "matter_disintegrator_s",
+                                    "type": "energy",
+                                    "cooldown": 4.5,
+                                    "accuracy": 0.9,
+                                    "buff": {
+                                        "shield": 0.5,
+                                        "armor": 1.5,
+                                        "hull": 2.0
+                                    },
+                                    "size": "s",
+                                    "cost": 29.0,
+                                    "power": 25.0,
+                                    "damage": [
+                                        20,
+                                        49
+                                    ],
+                                    "range": 60,
+                                    "tracking": 0.6,
+                                    "average_damage": 6.89,
+                                    "status": 0
+                                }
+                            }
+                        ]
+                    },
+                    "type": 0,
+                    "vessel_number": 0,
+                    "sections": {
+                        "core": {
+                            "name": "Interceptor",
+                            "slots": [
+                                {
+                                    "type": "s",
+                                    "weapon": {
+                                        "name": "plasma_cannon_s",
+                                        "type": "energy",
+                                        "cooldown": 5.1,
+                                        "accuracy": 0.8,
+                                        "buff": {
+                                            "shield": 0.25,
+                                            "armor": 2.0,
+                                            "hull": 1.5
+                                        },
+                                        "size": "s",
+                                        "cost": 22.0,
+                                        "power": 17.0,
+                                        "damage": [
+                                            20,
+                                            42
+                                        ],
+                                        "range": 30,
+                                        "tracking": 0.4,
+                                        "average_damage": 4.86,
+                                        "status": 0
+                                    }
+                                },
+                                {
+                                    "type": "s",
+                                    "weapon": {
+                                        "name": "cutting_laser_s",
+                                        "type": "energy",
+                                        "cooldown": 4.0,
+                                        "accuracy": 0.75,
+                                        "buff": {
+                                            "shield": 0.5,
+                                            "armor": 1.25,
+                                            "hull": 1.75
+                                        },
+                                        "size": "s",
+                                        "cost": 13.0,
+                                        "power": 7.0,
+                                        "damage": [
+                                            9,
+                                            22
+                                        ],
+                                        "range": 30,
+                                        "tracking": 0.4,
+                                        "average_damage": 2.9,
+                                        "status": 0
+                                    }
+                                },
+                                {
+                                    "type": "s",
+                                    "weapon": {
+                                        "name": "matter_disintegrator_s",
+                                        "type": "energy",
+                                        "cooldown": 4.5,
+                                        "accuracy": 0.9,
+                                        "buff": {
+                                            "shield": 0.5,
+                                            "armor": 1.5,
+                                            "hull": 2.0
+                                        },
+                                        "size": "s",
+                                        "cost": 29.0,
+                                        "power": 25.0,
+                                        "damage": [
+                                            20,
+                                            49
+                                        ],
+                                        "range": 60,
+                                        "tracking": 0.6,
+                                        "average_damage": 6.89,
+                                        "status": 0
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "Destroyer": [],
+            "Cruiser": [],
+            "Battleship": [],
+            "Titan": []
+        }
+    },
+    "test_fleet_000": {
+        "fleet_number": "test_fleet_000",
+        "fleet_size": 1,
+        "corvettes": [],
+        "destroyers": [
+            {
+                "bow": {
+                    "name": "Artillery",
+                    "slots": [
+                        {
+                            "type": "l",
+                            "weapon": {
+                                "name": "plasma_cannon_l",
+                                "type": "energy",
+                                "cooldown": 5.1,
+                                "accuracy": 0.8,
+                                "buff": {
+                                    "shield": 0.25,
+                                    "armor": 2.0,
+                                    "hull": 1.5
+                                },
+                                "size": "l",
+                                "cost": 88.0,
+                                "power": 59.0,
+                                "damage": [
+                                    120,
+                                    252
+                                ],
+                                "range": 70,
+                                "tracking": 0.05,
+                                "average_damage": 29.17,
+                                "status": 0
+                            }
+                        }
+                    ]
+                },
+                "stern": {
+                    "name": "no section",
+                    "slots": []
+                },
+                "type": 1,
+                "vessel_number": 0,
+                "sections": {
+                    "bow": {
+                        "name": "Artillery",
+                        "slots": [
+                            {
+                                "type": "l",
+                                "weapon": {
+                                    "name": "plasma_cannon_l",
+                                    "type": "energy",
+                                    "cooldown": 5.1,
+                                    "accuracy": 0.8,
+                                    "buff": {
+                                        "shield": 0.25,
+                                        "armor": 2.0,
+                                        "hull": 1.5
+                                    },
+                                    "size": "l",
+                                    "cost": 88.0,
+                                    "power": 59.0,
+                                    "damage": [
+                                        120,
+                                        252
+                                    ],
+                                    "range": 70,
+                                    "tracking": 0.05,
+                                    "average_damage": 29.17,
+                                    "status": 0
+                                }
+                            }
+                        ]
+                    },
+                    "stern": {
+                        "name": "no section",
+                        "slots": []
+                    }
+                }
+            }
+        ],
+        "cruisers": [],
+        "battleships": [],
+        "titans": [],
+        "vessels": {
+            "Corvette": [],
+            "Destroyer": [
+                {
+                    "bow": {
+                        "name": "Artillery",
+                        "slots": [
+                            {
+                                "type": "l",
+                                "weapon": {
+                                    "name": "plasma_cannon_l",
+                                    "type": "energy",
+                                    "cooldown": 5.1,
+                                    "accuracy": 0.8,
+                                    "buff": {
+                                        "shield": 0.25,
+                                        "armor": 2.0,
+                                        "hull": 1.5
+                                    },
+                                    "size": "l",
+                                    "cost": 88.0,
+                                    "power": 59.0,
+                                    "damage": [
+                                        120,
+                                        252
+                                    ],
+                                    "range": 70,
+                                    "tracking": 0.05,
+                                    "average_damage": 29.17,
+                                    "status": 0
+                                }
+                            }
+                        ]
+                    },
+                    "stern": {
+                        "name": "no section",
+                        "slots": []
+                    },
+                    "type": 1,
+                    "vessel_number": 0,
+                    "sections": {
+                        "bow": {
+                            "name": "Artillery",
+                            "slots": [
+                                {
+                                    "type": "l",
+                                    "weapon": {
+                                        "name": "plasma_cannon_l",
+                                        "type": "energy",
+                                        "cooldown": 5.1,
+                                        "accuracy": 0.8,
+                                        "buff": {
+                                            "shield": 0.25,
+                                            "armor": 2.0,
+                                            "hull": 1.5
+                                        },
+                                        "size": "l",
+                                        "cost": 88.0,
+                                        "power": 59.0,
+                                        "damage": [
+                                            120,
+                                            252
+                                        ],
+                                        "range": 70,
+                                        "tracking": 0.05,
+                                        "average_damage": 29.17,
+                                        "status": 0
+                                    }
+                                }
+                            ]
+                        },
+                        "stern": {
+                            "name": "no section",
+                            "slots": []
+                        }
+                    }
+                }
+            ],
+            "Cruiser": [],
+            "Battleship": [],
+            "Titan": []
+        }
+    }
+}
