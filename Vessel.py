@@ -7,10 +7,13 @@ class Vessel:
     vessel_number: int
     sections: dict
 
-    def __init__(self, type, vessel_number):
+    def __init__(self, type: int, vessel_number: int, sections_json: dict = None):
         self.type = type
         self.vessel_number = vessel_number
         self.sections = dict()
+        if sections_json:
+            for key, value in sections_json.items():
+                self.sections[key] = Section(slots_json=value)
 
     def get_compatible_sections(self):
         return list(self.sections.keys())
@@ -30,47 +33,40 @@ class Vessel:
     def __str__(self):
         vessel_str = '{} #{} with'.format(TYPE[int(self.type)], self.vessel_number)
         for key in self.sections.keys():
-            vessel_str += '\n' + INDENTATION + key + ': ' + self.sections[key].__str__()
+            vessel_str += '\n' + INDENTATION + key + ': ' + str(self.sections[key])
         return vessel_str
 
 
 class Corvette(Vessel):
-    def __init__(self, type, vessel_number):
-        core = Section()
-        super().__init__(type, vessel_number)
-        self.sections['core'] = core
+    def __init__(self, vessel_number, sections_json: dict = None):
+        super().__init__(0, vessel_number, sections_json)
+        if not sections_json:
+            self.sections['core'] = Section()
 
 
 class Destroyer(Vessel):
-    def __init__(self, type, vessel_number):
-        bow, stern = Section(), Section()
-        super().__init__(type, vessel_number)
-        self.sections['bow'] = bow
-        self.sections['stern'] = stern
+    def __init__(self, vessel_number, sections_json: dict = None):
+        super().__init__(1, vessel_number, sections_json)
+        if not sections_json:
+            self.sections['bow'], self.sections['stern'] = Section(), Section()
 
 
 class Cruiser(Vessel):
-    def __init__(self, type, vessel_number):
-        bow, core, stern = Section(), Section(), Section()
-        super().__init__(type, vessel_number)
-        self.sections['bow'] = bow
-        self.sections['core'] = core
-        self.sections['stern'] = stern
+    def __init__(self, vessel_number, sections_json: dict = None):
+        super().__init__(2, vessel_number, sections_json)
+        if not sections_json:
+            self.sections['bow'], self.sections['core'], self.sections['stern'] = Section(), Section(), Section()
 
 
 class Battleship(Vessel):
-    def __init__(self, type, vessel_number):
-        bow, core, stern = Section(), Section(), Section()
-        super().__init__(type, vessel_number)
-        self.sections['bow'] = bow
-        self.sections['core'] = core
-        self.sections['stern'] = stern
+    def __init__(self, vessel_number, sections_json: dict = None):
+        super().__init__(3, vessel_number, sections_json)
+        if not sections_json:
+            self.sections['bow'], self.sections['core'], self.sections['stern'] = Section(), Section(), Section()
 
 
 class Titan(Vessel):
-    def __init__(self, type, vessel_number):
-        bow, core, stern = Section(), Section(), Section()
-        super().__init__(type, vessel_number)
-        self.sections['bow'] = bow
-        self.sections['core'] = core
-        self.sections['stern'] = stern
+    def __init__(self, vessel_number, sections_json: dict = None):
+        super().__init__(4, vessel_number, sections_json)
+        if not sections_json:
+            self.sections['bow'], self.sections['core'], self.sections['stern'] = Section(), Section(), Section()

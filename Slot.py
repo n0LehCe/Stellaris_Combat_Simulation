@@ -5,9 +5,15 @@ class Slot():
     type: str
     weapon: Weapon
 
-    def __init__(self, type: str):
-        self.type = type
+    def __init__(self, type: str = None, weapon_json: dict = None):
+        self.type = 'default'
         self.weapon = None
+        if type:
+            self.type = type
+
+        if weapon_json:
+            self.type = weapon_json['type']
+            self.weapon = Weapon(weapon_specs_json=weapon_json['weapon'])
 
     def get_available_weapons(self):
         available_weapons = {}

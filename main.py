@@ -135,19 +135,21 @@ def export_fleet_json(fleet: Fleet):
             json.dump(fleet_data, outfile, indent=4, cls=FleetEncoder)
 
 
-def import_fleet_json():
+def import_fleet_json(fleet_number: str):
     with open('data/fleet_data.json', 'r') as openfile:
         data = json.load(openfile)
-    fleet = Fleet()
+    fleet = Fleet(vessels_json=data[fleet_number])
     return fleet
 
 
 def main():
-    fleet = Fleet('test_fleet_000')
+    fleet = Fleet(fleet_number='test_fleet_000')
     initialize_fleet(main_get_quantities(), fleet)
     arm_fleet(fleet)
 
     export_fleet_json(fleet)
+    fleet = import_fleet_json('test_fleet_000')
+    print(fleet.details())
 
 
 if __name__ == '__main__':

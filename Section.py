@@ -6,15 +6,19 @@ class Section():
     name: str
     slots: list
 
-    def __init__(self):
+    def __init__(self, slots_json: dict = None):
         self.name = 'no section'
         self.slots = []
+        if slots_json:
+            self.name = slots_json['name']
+            for weapon_json in slots_json['slots']:
+                self.slots.append(Slot(weapon_json=weapon_json))
 
     def change_section(self, type: int, section_name: str, new_section: str):
         self.name = new_section
         self.slots = []
         for slot_type in SLOTS[TYPE[type]][section_name][new_section]:
-            self.slots.append(Slot(slot_type))
+            self.slots.append(Slot(type=slot_type))
 
     def change_section_slot(self):
         pass

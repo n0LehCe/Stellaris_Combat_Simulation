@@ -6,7 +6,6 @@ from json import JSONEncoder
 class Fleet:
     fleet_size: int
     fleet_number: str
-    quantities: dict
     vessels: dict
     corvettes: list
     destroyers: list
@@ -14,35 +13,49 @@ class Fleet:
     battleships: list
     titans: list
 
-    def __init__(self, fleet_number: str, vessels_json: dict = None):
-        self.fleet_number = fleet_number
+    def __init__(self, fleet_number: str = None, vessels_json: dict = None):
         self.fleet_size = 0
         self.corvettes = list()
         self.destroyers = list()
         self.cruisers = list()
         self.battleships = list()
         self.titans = list()
+
+        if fleet_number:
+            self.fleet_number = fleet_number
+
         if vessels_json:
-            if vessels_json[TYPE[1]]:
-                self.corvettes
-            self.destroyers
-            self.cruisers
-            self.battleships
-            self.titans
+            self.fleet_number = vessels_json['fleet_number']
+            self.fleet_size = vessels_json['fleet_size']
+            if vessels_json[TYPE_PLURALS[0]]:
+                self.corvettes.extend([Corvette(i, vessels_json[TYPE_PLURALS[0]][0]['sections']) for i in
+                                       range(len(list(vessels_json[TYPE_PLURALS[0]])))])
+            if vessels_json[TYPE_PLURALS[1]]:
+                self.destroyers.extend([Destroyer(i, vessels_json[TYPE_PLURALS[1]][0]['sections']) for i in
+                                        range(len(list(vessels_json[TYPE_PLURALS[1]])))])
+            if vessels_json[TYPE_PLURALS[2]]:
+                self.cruisers.extend([Cruiser(i, vessels_json[TYPE_PLURALS[2]][0]['sections']) for i in
+                                      range(len(list(vessels_json[TYPE_PLURALS[2]])))])
+            if vessels_json[TYPE_PLURALS[3]]:
+                self.battleships.extend([Battleship(i, vessels_json[TYPE_PLURALS[3]][0]['sections']) for i in
+                                         range(len(list(vessels_json[TYPE_PLURALS[3]])))])
+            if vessels_json[TYPE_PLURALS[4]]:
+                self.titans.extend([Titan(i, vessels_json[TYPE_PLURALS[4]][0]['sections']) for i in
+                                    range(len(list(vessels_json[TYPE_PLURALS[4]])))])
         self.vessels = {TYPE[0]: self.corvettes, TYPE[1]: self.destroyers, TYPE[2]: self.cruisers,
                         TYPE[3]: self.battleships, TYPE[4]: self.titans}
 
     def add_vessel(self, type: int, amount: int):
-        if type == 0:
-            self.corvettes.extend([Corvette(type, i) for i in range(amount)])
-        elif type == 1:
-            self.destroyers.extend([Destroyer(type, i) for i in range(amount)])
-        elif type == 2:
-            self.cruisers.extend([Cruiser(type, i) for i in range(amount)])
-        elif type == 3:
-            self.battleships.extend([Battleship(type, i) for i in range(amount)])
-        else:
-            self.titans.extend([Titan(type, i) for i in range(amount)])
+        if 0 == type:
+            self.corvettes.extend([Corvette(i) for i in range(amount)])
+        elif 1 == type:
+            self.destroyers.extend([Destroyer(i) for i in range(amount)])
+        elif 2 == type:
+            self.cruisers.extend([Cruiser(i) for i in range(amount)])
+        elif 3 == type:
+            self.battleships.extend([Battleship(i) for i in range(amount)])
+        elif 4 == type:
+            self.titans.extend([Titan(i) for i in range(amount)])
         self.fleet_size += amount
 
     def get_fleet_number(self):
@@ -78,7 +91,7 @@ class Fleet:
         vessels_str = 'Fleet: {}\nSize: {}\nVessels: \n'.format(self.fleet_number, self.fleet_size)
         for key in self.vessels.keys():
             if len(self.vessels[key]) > 0:
-                vessels_str += INDENTATION + self.vessels[key][0].__str__() + '\n'
+                vessels_str += INDENTATION + str(self.vessels[key][0]) + '\n'
         return vessels_str[:-1]
 
 

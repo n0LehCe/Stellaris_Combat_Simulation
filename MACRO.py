@@ -2,6 +2,7 @@ REFRESH_RATE = 0.01
 MAXIMUM_VESSELS_AMOUNT = 201
 
 TYPE = ['Corvette', 'Destroyer', 'Cruiser', 'Battleship', 'Titan']
+TYPE_PLURALS = ['corvettes', 'destroyers', 'cruisers', 'battleships', 'titans']
 WEAPON_VISIBLE_DETAILS = ['type', 'cooldown', 'accuracy', 'buff', 'damage', 'range', 'tracking']
 
 INDENTATION = '    '
