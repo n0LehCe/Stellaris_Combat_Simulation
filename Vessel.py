@@ -24,8 +24,8 @@ class Vessel:
     def modify_vessel_section(self, section_name: str, new_section: str):
         self.sections[section_name].change_section(self.type, section_name, new_section)
 
-    def modify_vessel_slots(self, section_name: str, weapon_index: int):
-        pass
+    def modify_vessel_weapon(self, section_name: str, slot_index: int, weapon_name: str):
+        self.sections[section_name].modify_slots(slot_index, weapon_name)
 
     def __str__(self):
         vessel_str = '{} #{} with'.format(TYPE[int(self.type)], self.vessel_number)
@@ -35,59 +35,42 @@ class Vessel:
 
 
 class Corvette(Vessel):
-    core: Section
-
     def __init__(self, type, vessel_number):
-        self.core = Section()
+        core = Section()
         super().__init__(type, vessel_number)
-        self.sections['core'] = self.core
+        self.sections['core'] = core
 
 
 class Destroyer(Vessel):
-    bow: Section
-    stern: Section
-
     def __init__(self, type, vessel_number):
-        self.bow, self.stern = Section(), Section()
+        bow, stern = Section(), Section()
         super().__init__(type, vessel_number)
-        self.sections['bow'] = self.bow
-        self.sections['stern'] = self.stern
+        self.sections['bow'] = bow
+        self.sections['stern'] = stern
 
 
 class Cruiser(Vessel):
-    bow: Section
-    core: Section
-    stern: Section
-
     def __init__(self, type, vessel_number):
-        self.bow, self.core, self.stern = Section(), Section(), Section()
+        bow, core, stern = Section(), Section(), Section()
         super().__init__(type, vessel_number)
-        self.sections['bow'] = self.bow
-        self.sections['core'] = self.core
-        self.sections['stern'] = self.stern
+        self.sections['bow'] = bow
+        self.sections['core'] = core
+        self.sections['stern'] = stern
 
 
 class Battleship(Vessel):
-    bow: Section
-    core: Section
-    stern: Section
-
     def __init__(self, type, vessel_number):
-        self.bow, self.core, self.stern = Section(), Section(), Section()
+        bow, core, stern = Section(), Section(), Section()
         super().__init__(type, vessel_number)
-        self.sections['bow'] = self.bow
-        self.sections['core'] = self.core
-        self.sections['stern'] = self.stern
+        self.sections['bow'] = bow
+        self.sections['core'] = core
+        self.sections['stern'] = stern
 
 
 class Titan(Vessel):
-    bow: Section
-    core: Section
-    stern: Section
-
     def __init__(self, type, vessel_number):
-        self.bow, self.core, self.stern = Section(), Section(), Section()
+        bow, core, stern = Section(), Section(), Section()
         super().__init__(type, vessel_number)
-        self.sections['bow'] = self.bow
-        self.sections['core'] = self.core
-        self.sections['stern'] = self.stern
+        self.sections['bow'] = bow
+        self.sections['core'] = core
+        self.sections['stern'] = stern

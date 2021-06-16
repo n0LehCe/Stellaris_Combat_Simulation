@@ -53,7 +53,7 @@ def arm_fleet(fleet: Fleet):
     available_type = [i + 1 for i in [0, 1, 2, 3, 4] if fleet.get_quantity(i) != 0]
 
     editting_fleet_status = True
-    while (editting_fleet_status):
+    while editting_fleet_status:
         type_str = 'Enter type of vessels you would like to arm(1-Corvette,...,5-Titan)("done" if you have done editting this vessel):\n'
         type_str = load_vessels_types(type_str)
         type = input(type_str)
@@ -67,7 +67,7 @@ def arm_fleet(fleet: Fleet):
         type = int(type) - 1
 
         editting_vessel_status = True
-        while (editting_vessel_status):
+        while editting_vessel_status:
             vessel = fleet.get_vessel(type)
             print(SECTION_SEPARATER[:-1])
             print(vessel)
@@ -96,7 +96,7 @@ def arm_fleet(fleet: Fleet):
                 section_index = input(NOT_VALID)
             section_index = int(section_index) - 1
 
-            vessel.modify_vessel_section(section_type, list(available_sections.keys())[section_index])
+            fleet.modify_vessels_section(type, section_type, list(available_sections.keys())[section_index])
             print(SECTION_SEPARATER[:-1])
             print(vessel)
             for slot in section.get_slots():
@@ -113,7 +113,9 @@ def arm_fleet(fleet: Fleet):
                 while selected_weapon_index not in list(map(str, range(0, len(available_weapons.keys()) + 1))):
                     selected_weapon_index = input(NOT_VALID)
                 if int(selected_weapon_index) > 0:
-                    slot.arm(list(available_weapons.keys())[int(selected_weapon_index) - 1])
+                    fleet.modify_vessels_slots(type, section_type, section.get_slots().index(slot),
+                                               list(available_weapons.keys())[int(selected_weapon_index) - 1])
+                    # slot.arm(list(available_weapons.keys())[int(selected_weapon_index) - 1])
                 print(SECTION_SEPARATER[:-1])
             print(vessel)
     print(fleet.details())

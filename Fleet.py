@@ -14,7 +14,7 @@ class Fleet:
     battleships: list
     titans: list
 
-    def __init__(self, fleet_number):
+    def __init__(self, fleet_number: str, vessels_json: dict = None):
         self.fleet_number = fleet_number
         self.fleet_size = 0
         self.corvettes = list()
@@ -22,6 +22,13 @@ class Fleet:
         self.cruisers = list()
         self.battleships = list()
         self.titans = list()
+        if vessels_json:
+            if vessels_json[TYPE[1]]:
+                self.corvettes
+            self.destroyers
+            self.cruisers
+            self.battleships
+            self.titans
         self.vessels = {TYPE[0]: self.corvettes, TYPE[1]: self.destroyers, TYPE[2]: self.cruisers,
                         TYPE[3]: self.battleships, TYPE[4]: self.titans}
 
@@ -57,9 +64,9 @@ class Fleet:
         for vessel in self.vessels[TYPE[type]]:
             vessel.modify_vessel_section(section_name, new_section)
 
-    def modify_vessels_slots(self, type: int, section_name: str, slot_index: int, weapon_index: int):
+    def modify_vessels_slots(self, type: int, section_name: str, slot_index: int, weapon_name: str):
         for vessel in self.vessels[TYPE[type]]:
-            vessel.modify_vessel_slots(section_name, weapon_index)
+            vessel.modify_vessel_weapon(section_name, slot_index, weapon_name)
 
     def __str__(self):
         vessels_str = 'Fleet: {}\nSize: {}\nVessels: \n'.format(self.fleet_number, self.fleet_size)

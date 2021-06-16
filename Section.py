@@ -12,8 +12,12 @@ class Section():
 
     def change_section(self, type: int, section_name: str, new_section: str):
         self.name = new_section
+        self.slots = []
         for slot_type in SLOTS[TYPE[type]][section_name][new_section]:
             self.slots.append(Slot(slot_type))
+
+    def change_section_slot(self):
+        pass
 
     @staticmethod
     def get_available_sections(type: int, section_name: str):
@@ -22,8 +26,8 @@ class Section():
     def get_slots(self):
         return self.slots
 
-    def modify_slots(self):
-        pass
+    def modify_slots(self, slot_index: int, weapon_name: str):
+        self.slots[slot_index].arm(weapon_name)
 
     def __str__(self):
         slot_str = self.name
