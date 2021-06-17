@@ -38,7 +38,6 @@ class Enemy:
             accuracy = weapon['accuracy']
         else:
             accuracy = weapon['accuracy'] - (self.evasion - weapon['tracking'])
-
         hit = random.randint(1, 100)
         if hit >= accuracy * 100:
             return
@@ -50,6 +49,7 @@ class Enemy:
             self.hull -= damage
             if self.hull <= 0:
                 self.is_destroyed = True
+
         # case regular
         elif self.has_shield:
             self.shield -= damage * weapon['buff']['shield']
@@ -60,7 +60,7 @@ class Enemy:
                 self.armor -= damage * weapon['buff']['armor']
                 if self.armor <= 0:
                     self.has_armor = False
-                    damage = abs(self.shield)
+                    damage = abs(self.armor)
                     self.armor = 0
                     self.hull -= damage * weapon['buff']['hull']
                     if self.hull <= 0:
@@ -69,7 +69,7 @@ class Enemy:
             self.armor -= damage * weapon['buff']['armor']
             if self.armor <= 0:
                 self.has_armor = False
-                damage = abs(self.shield)
+                damage = abs(self.armor)
                 self.armor = 0
                 self.hull -= damage * weapon['buff']['hull']
                 if self.hull <= 0:
