@@ -52,24 +52,27 @@ class Enemy:
 
         # case regular
         elif self.has_shield:
+            absorbable_damage = self.shield / weapon['buff']['shield']
             self.shield -= damage * weapon['buff']['shield']
             if self.shield <= 0:
                 self.has_shield = False
-                damage = abs(self.shield)
+                damage = absorbable_damage
                 self.shield = 0
+                absorbable_damage = self.armor / weapon['buff']['armor']
                 self.armor -= damage * weapon['buff']['armor']
                 if self.armor <= 0:
                     self.has_armor = False
-                    damage = abs(self.armor)
+                    damage = absorbable_damage
                     self.armor = 0
                     self.hull -= damage * weapon['buff']['hull']
                     if self.hull <= 0:
                         self.is_destroyed = True
         elif self.has_armor:
+            absorbable_damage = self.armor / weapon['buff']['armor']
             self.armor -= damage * weapon['buff']['armor']
             if self.armor <= 0:
                 self.has_armor = False
-                damage = abs(self.armor)
+                damage = absorbable_damage
                 self.armor = 0
                 self.hull -= damage * weapon['buff']['hull']
                 if self.hull <= 0:
