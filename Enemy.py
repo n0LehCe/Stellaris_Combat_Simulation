@@ -17,13 +17,7 @@ class Enemy:
         self.enemy_number = enemy_number
         if spec:
             self.spec = spec
-        else:
-            self.spec = {
-                'shield': 2500,
-                'armor': 1500,
-                'hull': 3000,
-                'evasion': 0.3
-            }
+
         self.shield = spec['shield']
         self.armor = spec['armor']
         self.hull = spec['hull']
@@ -56,13 +50,13 @@ class Enemy:
             self.shield -= damage * weapon['buff']['shield']
             if self.shield <= 0:
                 self.has_shield = False
-                damage = absorbable_damage
+                damage -= absorbable_damage
                 self.shield = 0
                 absorbable_damage = self.armor / weapon['buff']['armor']
                 self.armor -= damage * weapon['buff']['armor']
                 if self.armor <= 0:
                     self.has_armor = False
-                    damage = absorbable_damage
+                    damage -= absorbable_damage
                     self.armor = 0
                     self.hull -= damage * weapon['buff']['hull']
                     if self.hull <= 0:
@@ -72,7 +66,7 @@ class Enemy:
             self.armor -= damage * weapon['buff']['armor']
             if self.armor <= 0:
                 self.has_armor = False
-                damage = absorbable_damage
+                damage -= absorbable_damage
                 self.armor = 0
                 self.hull -= damage * weapon['buff']['hull']
                 if self.hull <= 0:
@@ -81,3 +75,23 @@ class Enemy:
             self.hull -= damage * weapon['buff']['hull']
             if self.hull <= 0:
                 self.is_destroyed = True
+
+    def get_status(self):
+        status = {
+            'shield': self.shield,
+            'armor': self.armor,
+            'hull': self.hull,
+            'is_destroyed': self.is_destroyed
+        }
+        return status
+
+
+class Dummy(Enemy):
+    def __init__(self, enemy_number: str = 'Dummy Enemy 000', spec: dict = None):
+        self.spec = {
+            'shield': 2500,
+            'armor': 1500,
+            'hull': 3000,
+            'evasion': 0.3
+        }
+        super().__init__(enemy_number, spec)

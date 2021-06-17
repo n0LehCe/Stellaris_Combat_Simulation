@@ -70,8 +70,21 @@ class Fleet:
     def get_vessel(self, type: int):
         return self.vessels[TYPE[type]][0]
 
-    def get_vessels(self):
-        return self.vessels
+    def get_vessels(self, type: int):
+        return self.vessels[TYPE[type]]
+
+    def get_all_vessels(self):
+        return self.corvettes + self.destroyers + self.cruisers + self.battleships + self.titans
+
+    def get_status(self):
+        pass
+
+    def get_all_weapons(self):
+        weapons = list()
+        for vessel in self.get_all_vessels():
+            weapons.extend(vessel.get_all_weapons())
+        return weapons
+
 
     def modify_vessels_section(self, type: int, section_name: str, new_section: str):
         for vessel in self.vessels[TYPE[type]]:

@@ -22,6 +22,9 @@ class Slot():
                 available_weapons[key] = WEAPON[key]
         return available_weapons
 
+    def get_weapon(self):
+        return self.weapon
+
     def arm(self, weapon: str):
         self.weapon = Weapon(weapon)
 

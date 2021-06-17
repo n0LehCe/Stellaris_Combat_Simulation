@@ -24,6 +24,12 @@ class Vessel:
     def get_available_sections(self):
         pass
 
+    def get_all_weapons(self):
+        weapons = list()
+        for section in self.sections.values():
+            weapons.extend(section.get_all_weapons())
+        return weapons
+
     def modify_vessel_section(self, section_name: str, new_section: str):
         self.sections[section_name].change_section(self.type, section_name, new_section)
 

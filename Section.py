@@ -27,8 +27,14 @@ class Section():
     def get_available_sections(type: int, section_name: str):
         return SLOTS[TYPE[type]][section_name]
 
-    def get_slots(self):
+    def get_slots(self) -> list:
         return self.slots
+
+    def get_all_weapons(self) -> list:
+        weapons = list()
+        for slot in self.slots:
+            weapons.append(slot.weapon)
+        return weapons
 
     def modify_slots(self, slot_index: int, weapon_name: str):
         self.slots[slot_index].arm(weapon_name)
