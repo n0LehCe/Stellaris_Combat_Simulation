@@ -8,6 +8,7 @@ class Enemy:
     shield: float
     armor: float
     hull: float
+    evasion: float
     has_shield: bool
     has_armor: bool
     is_destroyed: bool
@@ -20,33 +21,45 @@ class Enemy:
             self.spec = {
                 'shield': 2500,
                 'armor': 1500,
-                'hull': 3000
+                'hull': 3000,
+                'evasion': 0.3
             }
         self.shield = spec['shield']
         self.armor = spec['armor']
         self.hull = spec['hull']
+        self.evasion = spec['evasion']
         self.has_shield = True
         self.has_armor = True
         self.is_destroyed = False
 
     def receive_damage(self, weapon):
-        damage = random.randint(WEAPON[weapon]['damage'][0], WEAPON[weapon]['damage'][1])
+        # case evasion
+        if weapon['tracking'] > self.evasion:
+            accuracy = weapon['accuracy']
+        else:
+            accuracy = weapon['accuracy'] - (self.evasion - weapon['tracking'])
+
+        hit = random.randint(0, 100)
+        if hit >= accuracy * 100:
+            return
+
+        damage = random.randint(weapon['damage'][0], weapon['damage'][1])
 
         # case penetration
-        if WEAPON[weapon]['buff']['shield'] == -1 and WEAPON[weapon]['buff']['armor'] == -1:
+        if weapon['buff']['shield'] == -1 and weapon['buff']['armor'] == -1:
             self.hull -= damage
             if self.hull <= 0:
                 self.is_destroyed = True
         # case regular
         elif self.has_shield:
-            self.shield -= damage * WEAPON[weapon]['buff']['shield']
+            self.shield -= damage * weapon['buff']['shield']
             if self.shield <= 0:
                 self.has_shield = False
         elif self.has_armor:
-            self.armor -= damage * WEAPON[weapon]['buff']['armor']
+            self.armor -= damage * weapon['buff']['armor']
             if self.armor <= 0:
                 self.has_armor = False
         else:
-            self.hull -= damage * WEAPON[weapon]['buff']['hull']
+            self.hull -= damage * weapon['buff']['hull']
             if self.hull <= 0:
                 self.is_destroyed = True
